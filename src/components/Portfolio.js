@@ -30,7 +30,7 @@ const Portfolio = () => {
             title: "Kişisel Portfolyo Web Sitesi",
             description:
                 "Bu gezdiğiniz siteyi kendim React ile oluşturdum. Tasarımı, animasyonları ve responsive yapıyı ben kodladım.",
-            github: "https://github.com/cerensarkun/websitesi.git",
+            github: "https://github.com/cerensarkun/my-personal-portfolio",
 
         },
     ];
