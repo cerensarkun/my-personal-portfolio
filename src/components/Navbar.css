@@ -1,0 +1,154 @@
+/* src/components/Navbar.css */
+
+/* Genel Navbar Stilleri */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    height: 70px; /* Mevcut yüksekliğiniz */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    display: flex;
+    /* justify-content: space-between; /* Önceki: Brand ve menüyü iki yana yaslar */
+    justify-content: center; /* YENİ: Navbar'ın ana içeriğini yatayda ortalar */
+    align-items: center;
+    padding: 0 20px; /* Kenarlardan boşluk */
+}
+
+/* Brand / logo (şu an boş olabilir ama yer tutucu duruyor) */
+.navbar-brand {
+    /* Brand'i sol üst köşeye sabitlemek için */
+    position: absolute;
+    left: 20px; /* Sol kenardan boşluk */
+    /* Navbar'ın yüksekliğine göre dikeyde ortalamak için */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001; /* Menü açıldığında altta kalmaması için */
+}
+
+.navbar-brand a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 24px;
+    /* padding: 10px 0; /* Artık position absolute olduğu için bu padding'e gerek yok */
+}
+
+/* Menü (desktop görünüm) */
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Menü öğelerini dikeyde ortalar */
+    /* Bu kısım zaten parent'ı (navbar) tarafından ortalanmış olacak */
+}
+
+.navbar-nav li {
+    margin: 0;
+}
+
+.navbar-nav .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #f4aa00;
+    color: white;
+}
+
+/* Hamburger Menü */
+.menu-toggle {
+    display: none; /* Varsayılan olarak gizli */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    /* Hamburger ikonunu sağ üst köşeye sabitlemek için */
+    position: absolute;
+    right: 20px; /* Sağ kenardan boşluk */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001; /* Menü açıldığında altta kalmaması için */
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    /* Mobil görünümde genel Navbar ayarları */
+    .navbar {
+        flex-wrap: wrap; /* Eğer elemanlar sığmazsa alt satıra geçmelerini sağlar */
+        justify-content: space-between; /* Mobil görünümde brand sola, ikon sağa */
+        padding: 15px 20px; /* Mobil padding */
+        height: 70px; /* Mobil görünümde de aynı yükseklik */
+    }
+
+    /* Mobil görünümde brand ve hamburger ikonunun position'ını sıfırla */
+    .navbar-brand,
+    .menu-toggle {
+        position: static; /* Normal akışa geri döner */
+        transform: none; /* Transform'ları sıfırla */
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .menu-toggle {
+        display: flex; /* Hamburger ikonunu göster */
+    }
+
+    .navbar-nav {
+        display: none; /* Varsayılan olarak mobil menüyü gizle */
+        flex-direction: column;
+        align-items: center; /* Mobil menüdeki linkleri ortala */
+        position: absolute;
+        top: 70px; /* Navbar'ın yüksekliğine göre menüyü aşağıya konumlandır */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar-nav.open {
+        display: flex; /* Menü açık olduğunda göster */
+    }
+
+    .navbar-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100%; /* Linkin tüm genişliği kaplamasını sağlar */
+        padding: 14px 0;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,41 @@
+.skills {
+    background: linear-gradient(to bottom, #fff8e1, #ffe0b2);
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.skills-container {
+    max-width: 900px;
+    margin: 0 20px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    color: #ff7043;
+    margin-bottom: 20px;
+}
+
+.skills p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #333;
+}
+.skills-section {
+    background-color: #ffeccc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
